@@ -11,6 +11,26 @@
         public string HazaiNev { get; set; }
         public string VendegNev { get; set; }
 
+        public string GyoztesCsapatNeve() {
+            if (HazaiVeg > VendegVeg) {return HazaiNev;}
+            else if (HazaiVeg < VendegVeg) { return VendegNev;}
+            else return "";
+        }
+
+        public int LottGolok(string csapatNev)
+        {
+            if (csapatNev == HazaiNev) { return HazaiVeg; }
+            else if (csapatNev == VendegNev) { return VendegVeg; }
+            else return -1;
+        }
+
+        public int KapottGolok(string csapatNev)
+        {
+            if (csapatNev == HazaiNev) { return VendegVeg; }
+            else if (csapatNev == VendegNev) { return HazaiVeg; }
+            else return -1;
+        }
+
 
     }
 }

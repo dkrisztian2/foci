@@ -1,14 +1,19 @@
 ﻿@page
 @model foci.Pages.MeccsStatsModel
 @{
-    ViewData["Title"] = "MeccsekStatisztikája";
+    ViewData["Title"] = "Bajnokság Állása";
 }
 
-<table>
+<h1>
+    Bajnokság állása
+</h1>
+
+<table class="table">
     <thead>
-        <tr>
-            <th>CsapatNev</th>
+        <tr>          
             <th>Helyezés</th>
+            <th>CsapatNev</th>
+            <th>Jatszott Merkozesek</th>
             <th>Győzelmek</th>
             <th>Vereségek</th>
             <th>Döntetlenek</th>
@@ -17,4 +22,20 @@
             <th>Kapottgolok</th>
         </tr>
     </thead>
+    <tbody>
+        @for (int i = 0; i < Model.stats.Count(); i++)
+        {
+            <tr>
+                <td>@(i+1).</td>
+                <td>@Model.stats[i].CsapataNev</td>
+                <td>@Model.stats[i].JatszottMerkozesekSzama</td>
+                <td>@Model.stats[i].GyozelmekSzama</td>
+                <td>@Model.stats[i].VersegekSzama</td>
+                <td>@Model.stats[i].DontetlenekSzama</td>
+                <td>@Model.stats[i].Pontszam</td>
+                <td>@Model.stats[i].LottGolokSzama</td>
+                <td>@Model.stats[i].KapottGolokSZama</td>
+            </tr>
+        }
+    </tbody>
 </table>
